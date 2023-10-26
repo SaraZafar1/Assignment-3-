@@ -1,0 +1,263 @@
+<html>
+<head>
+    <title>Guess the Number!</title>
+    <style>
+       body {
+        align-content: center;
+        background-color: #680000;
+        color: white;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: grid;
+
+        text-align: center;
+         font-size: 60px;
+
+         grid-template-columns: 1fr 1fr 1fr;
+         grid-template-rows: 100px 100px 1fr 1fr 1fr 1fr 100px;
+         gap: 10px;
+
+         height: 99vh;
+         width: 99vw;
+
+       }
+        h2 {font-size: 25px; }
+        
+        div {
+         align-content: center;
+         border: 3px solid black;
+         vertical-align: middle;
+         }
+
+         button {
+           width: 95%;
+           height: 95%;
+
+    
+         }
+
+         .displayButton {
+            background-color: #888888;
+            
+         }
+
+       .title {
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 4;
+          background: #dd0000;
+           border: #ffffff solid 4px; 
+            font-size: 50px;
+          }
+
+        .informationDisplay {
+            grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 1;
+          grid-column-end: 4;
+          background: #000000;
+           border:#dd0000 solid 4px; 
+           vertical-align: center;
+            font-size: 35px;
+        }
+
+      .button1 {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 2;
+          color: black;
+          font-size: 30px; }
+
+      .button2 {
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 1;
+          grid-column-end: 2;
+              color: black; 
+          font-size: 30px;}
+
+
+          .button3 {
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 1;
+          grid-column-end: 2;
+              color: black;     font-size: 30px;}
+
+          .button4 {
+          grid-row-start: 6;
+          grid-row-end: 7;
+          grid-column-start: 1;
+          grid-column-end: 2;
+              color: black;     font-size: 30px;}
+          
+         .button5 {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 2;
+          grid-column-end: 3;
+              color: black;     font-size: 30px; }
+
+          .button6 {
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 2;
+          grid-column-end: 3;
+              color: black;     font-size: 30px;}
+
+          .button7 {
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 2;
+          grid-column-end: 3;
+              color: black;     font-size: 30px; }
+
+          .button8 {
+          grid-row-start: 6;
+          grid-row-end: 7;
+          grid-column-start: 2;
+          grid-column-end: 3;
+              color: black;     font-size: 30px;}
+          
+          .button9 {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 3;
+          grid-column-end: 4;
+              color: black;     font-size: 30px;}
+
+          
+          .button10 {
+          grid-row-start: 4;
+          grid-row-end: 5;
+          grid-column-start: 3;
+          grid-column-end: 4;
+              color: black;     font-size: 30px; }
+
+          
+          .button11 {
+          grid-row-start: 5;
+          grid-row-end: 6;
+          grid-column-start: 2;
+          grid-column-end: 3;
+              color: black;     font-size: 30px; }
+      
+      
+      
+          .footer {
+          grid-row-start: 7;
+          grid-row-end: 9;
+          grid-column-start: 1;
+          grid-column-end: 4;
+          background: #7a7979;
+          color: rgb(0, 0, 0);     font-size: 100px;
+          font-family: "Lucida Handwriting", cursive;}
+
+
+   
+
+
+   
+   h1 {
+    font-size: 50px;
+
+   }
+
+
+    </style> 
+<script> 
+
+    var b = numberToAdd;
+    var a = 0;
+
+
+    function numberOfGuesses() {
+        document.getElementById("numberEleven").innerHTML = "You have guessed " + a + " times <br> Your last guess: " + b; }
+
+
+    
+    function guess() {
+        a = a + 1; 
+            b = Number(document.getElementById("numberToAdd"). value); 
+        if(b==29) document.getElementById("numberToAdd").disabled = true; 
+        if(b==29) document.getElementById("numberSix").disabled = true; 
+        if(b==29) document.getElementById("footer").innerHTML = "YOU GUESSED IT!!! <br> <br> Thanks for playing, rockstar!!!"; style = "color: #FF0061"; 
+        if(b<=10 && b>0) document.getElementById("footer").innerHTML = "That's WAAAY too low!";
+        if(b<=28 && b>10) document.getElementById("footer").innerHTML = "Getting WARMER....";
+        if(b<=88 && b>=65) document.getElementById("footer").innerHTML = "Woah! That's a little high!";
+        if(b>=30 && b<65) document.getElementById("footer").innerHTML = "Why don't you take it down many notches, buddy?"; 
+        if(b>88 && b<=100) document.getElementById("footer").innerHTML = "The answer's not up in SPACE, dude!"; 
+        if(b>100) document.getElementById("numberToAdd").disabled = true;}
+       
+
+    function assignment() {
+document.getElementById("communicate").innerHTML = "I am thinking of a number between 1 and 100"; 
+    }
+
+    function reset() {
+document.getElementById("numberToAdd").disabled = false; 
+document.getElementById("numberSix").disabled = false; 
+c = Number(document.getElementById("numberToAdd").value) 
+    }
+
+if(b==29) document.getElementById("numberToAdd").disabled = true; 
+        if(d==76) document.getElementById("numberSix").disabled = true;
+        if(d==76) document.getElementById("footer").innerHTML = "YOU GOT IT!!! <br> <br> You're TOO good at this, man!!!"; style = "color: #FF0061"; 
+        if(d<=10 && d>0) document.getElementById("footer").innerHTML = "That's WAAAAAAAY too low!";
+        if(d<=28 && d>10) document.getElementById("footer").innerHTML = "Much higher bud, keep trying!";
+        if(d<=88 && d>=77) document.getElementById("footer").innerHTML = "Woah! That's a little high...!";
+        if(d>=30 && d<65) document.getElementById("footer").innerHTML = "Don't be shy, it's a little higher!"; 
+        if(d>88 && d<=100) document.getElementById("footer").innerHTML = "The answer's not beyond the MILKY WAY, dude!"; 
+        if(d=>100) document.getElementById("numberToAdd").disabled = true;
+</script>
+</head>
+
+<body>
+    <div class="title">
+    GUESS THE NUMBER
+
+       
+    </div>
+
+
+
+    <div class="informationDisplay" id="communicate" style. font-family: "Lucida Handwriting", cursive; onclick="assignment();">
+       Click here for your starting hint!
+      
+   </div>
+
+
+    
+    <div class="button5" onmouseenter = "this.style='border: 3px solid #0088aa;';" onmouseleave = "this.style='border: 3px solid #000000;';" >
+        <button id="numberTwo" class="displayButton";> 
+<h2>Your guess: <input id= "numberToAdd"; style="font-size: larger;"></input></h2>
+
+        </button>
+
+    </div>
+
+    <div class="button6" onmouseenter = "this.style='border: 3px solid #0088aa;';" onmouseleave = "this.style='border: 3px solid #000000;';" >
+        <button id="numberSix" class = "displayButton" onclick="guess();">
+      <h2> Are you right? (Click me) </h2>
+</button></div>
+
+ <div class="button7" id="guessChanger">
+    <h2> You have guessed _ times </h2>
+
+ </div>
+
+    </button>
+    <div class="button11" onmouseenter = "this.style='border: 3px solid #0088aa;';" onmouseleave = "this.style='border: 3px solid #000000;';" >
+        <button id="numberEleven" class = "displayButton"; onclick="numberOfGuesses();"> 
+            <h2> How many guesses have you made? <br> What was your last guess? </h2></button></div>
+
+
+    <div class="footer" onmouseenter = "this.style='border: 3px solid #0088aa;';" onmouseleave = "this.style='border: 3px solid #000000;';" > 
+        <button id="footer" style = font-size:x-large; font-family: "Lucida Handwriting", cursive;> </button>
+    </div>
+
+</body>
+
+
+</html>
