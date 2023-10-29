@@ -1,0 +1,66 @@
+<html> 
+<head> 
+    <title> Guess My Number! </title>
+
+</style>
+
+<Script> 
+    var a = 29; 
+    var b = 0; 
+    var c = 0;
+    var instructions = "I'm thinking of a number from 1 to 100!"; 
+
+
+function guess () { 
+    c++;
+    b = Number(document.getElementById("guesses").value); 
+    document.getElementById("visible").innerHTML = instructions;
+    document.getElementById("last").innerHTML = "Your last guess was: " + b;  
+    document.getElementById("times").innerHTML =  "You've guessed " + c + " time(s)!"; 
+    if(b<=10 && b>0) document.getElementById("instructions").innerHTML = "That's WAAAY too low!";
+    if(b<=28 && b>10) document.getElementById("instructions").innerHTML = "Getting WARMER....";
+    if(b<=88 && b>=65) document.getElementById("instructions").innerHTML = "Woah! That's a little high!";
+    if(b>=30 && b<65) document.getElementById("instructions").innerHTML = "Why don't you take it down many notches, buddy?"; 
+    if(b>88 && b<=100) document.getElementById("instructions").innerHTML = "The answer's not up in SPACE, dude!"; 
+if(b==a) {document.getElementById("instructions").innerHTML = "CORRECT!"; style = "color: black";}
+if(b==a) {document.getElementById("submit").disabled = true; }
+if(b==a) {document.getElementById("guesses").disabled = true;} }
+
+function resetGame() { 
+    b = 74;
+    document.getElementById("submit").disabled = false; 
+    document.getElementById("guesses").disabled = false; 
+    if(b<=10 && b>0) document.getElementById("instructions").innerHTML = "That's WAAAY too low!";
+    if(b<=29 && b>10) document.getElementById("instructions").innerHTML = "Still too cold....";
+    if(b<=88 && b>=75) document.getElementById("instructions").innerHTML = "Woah! You're getting really hot!";
+    if(b>=30 && b<74) document.getElementById("instructions").innerHTML = "Getting warmer..."; 
+    if(b>88 && b<=100) document.getElementById("instructions").innerHTML = "It's so cold all the way up here! :("; }
+</Script>
+</head>
+
+<body> <body style="background-color:#ff849c";> 
+<style> 
+h2 {color: white;} 
+p {color: white;} </style>
+</body>
+
+    <style> 
+    
+    </style>
+    <center>
+    <h2> Can You Guess My Number? </h2>
+    <p id="visible"> I'm thinking of a number from 1 to 100!</p> 
+    <br> <input id="guesses">  
+    <button id= "submit" onclick ="guess();">  Guess!</button>
+    <p id="times"> You've guessed 0 times </p> 
+    <p id="last"> Your last guess was _ </p> 
+    <br> 
+    <button id="reset" disabled = true; onclick = "resetGame();"> Reset the Game</button>
+
+    </center>
+
+</body>
+
+
+
+</html>
