@@ -2,61 +2,81 @@
 <head> 
     <title> Guess My Number! </title>
 
-</style>
-
-<Script>
-    var a = 29; 
+<Script> 
+    var a = Math.floor(Math.random()*100)+1; 
     var b = 0; 
     var c = 0;
-    var instructions = "I'm thinking of a number from 1 to 100!"; 
+    var dummy = 1; 
+    var dummy2 = 1; 
 
 
 function guess () { 
+  document.getElementById("guesses").focus(); 
+    dummy = Math.floor(Math.random()*3)+1; 
     c++;
     b = Number(document.getElementById("guesses").value); 
-    document.getElementById("visible").innerHTML = instructions;
     document.getElementById("last").innerHTML = "Your last guess was: " + b;  
-    document.getElementById("times").innerHTML =  "You've guessed " + c + " time(s)!"; 
-    if(b<=10 && b>0) document.getElementById("instructions").innerHTML = "That's WAAAY too low!";
-    if(b<=28 && b>10) document.getElementById("instructions").innerHTML = "Getting WARMER....";
-    if(b<=88 && b>=65) document.getElementById("instructions").innerHTML = "Woah! That's a little high!";
-    if(b>=30 && b<65) document.getElementById("instructions").innerHTML = "Why don't you take it down many notches, buddy?"; 
-    if(b>88 && b<=100) document.getElementById("instructions").innerHTML = "The answer's not up in SPACE, dude!"; 
-if(b==a) {document.getElementById("instructions").innerHTML = "CORRECT!"; style = "color: black";}
-if(b==a) {document.getElementById("submit").disabled = true; }
-if(b==a) {document.getElementById("guesses").disabled = true;} }
+    document.getElementById("times").innerHTML =  "You've guessed " + c + " time(s)!";
+    document.getElementById("guesses").value = "";
+    dummy2 = Math.floor(Math.random()*3)+1; 
 
-function resetGame() { 
-    b = 74;
-    document.getElementById("submit").disabled = false; 
-    document.getElementById("guesses").disabled = false; 
-    if(b<=10 && b>0) document.getElementById("instructions").innerHTML = "That's WAAAY too low!";
-    if(b<=29 && b>10) document.getElementById("instructions").innerHTML = "Still too cold....";
-    if(b<=88 && b>=75) document.getElementById("instructions").innerHTML = "Woah! You're getting really hot!";
-    if(b>=30 && b<74) document.getElementById("instructions").innerHTML = "Getting warmer..."; 
-    if(b>88 && b<=100) document.getElementById("instructions").innerHTML = "It's so cold all the way up here! :("; }
-</Script>
+      if(b<a) {
+        if (dummy==1) {document.getElementById("visible").innerHTML = "That's WAAAY too low!";} 
+      else if(dummy==2) {document.getElementById("visible").innerHTML = "That's too small!";}
+      else {document.getElementById("visible").innerHTML = "Go higher!";} 
+     
+    }
+
+      if(b>a) {
+        if (dummy2==1) {document.getElementById("visible").innerHTML = "The answer's not up in SPACE, dude!";} 
+    else if(dummy2==2) {document.getElementById("visible").innerHTML = "That's too big!";}
+    else {document.getElementById("visible").innerHTML = "Go lower!";} }
+    
+      if(b==a) {
+{document.getElementById("visible").innerHTML = "CORRECT! Thanks for playing!";}
+      if(b==a) {document.getElementById("submit").disabled = true; }
+      if(b==a) {document.getElementById("guesses").disabled = true;}
+      } }
+
+      function resetGame() { 
+        a = Math.floor(Math.random()*100)+1; 
+    document.getElementById("submit").disabled = false;
+    document.getElementById("guesses").disabled = false;
+    document.getElementById("guesses").value = ""; 
+     b = 0;
+     c = 0;
+    document.getElementById("visible").innerHTML = "I'm thinking of a number from 1-100.";
+    document.getElementById("last").innerHTML = "Your last guess was: " + b;  
+    document.getElementById("times").innerHTML =  "You've guessed " + c + " time(s)!";
+    document.getElementById("guesses").focus();
+    document.getElementById("reveal").innerHTML = "What's the Answer?";
+      }
+
+    function answer() { 
+      document.getElementById("reveal").innerHTML = "The answer: " + a; 
+    }
+
+</script>
 </head>
 
-<body> <body style="background-color:#ff849c";> 
+<body> <body style="background-color:#ff849c"> 
 <style> 
 h2 {color: white;} 
-p {color: white;} </style>
+p {color: white;} 
+</style>
 </body>
 
-    <style> 
-    
-    </style>
     <center>
     <h2> Can You Guess My Number? </h2>
     <p id="visible"> I'm thinking of a number from 1 to 100!</p> 
     <br> <input id="guesses">  
-    <button id= "submit" onclick ="guess();">  Guess!</button>
-    <p id="times"> You've guessed 0 times </p> 
-    <p id="last"> Your last guess was _ </p> 
+    <button id= "submit" onclick ="guess();"> Guess!</button>
+        <p id="times"> You've guessed 0 times </p> 
+    <p id="last"> Your last guess was </p> 
     <br> 
-    <button id="reset" disabled = true; onclick = "resetGame();"> Reset the Game</button>
-
+    <button id="reset" onclick = "resetGame();"> Reset the Game</button>
+    <br> <br>
+    <button id="reveal" onclick = "answer();"> What's the Answer?</button>
     </center>
 
 </body>
